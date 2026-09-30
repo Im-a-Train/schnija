@@ -1,0 +1,103 @@
+{
+  "title": "Schatzsuche am Chrischtchindlimärit",
+  "subtitle": "Finde alle versteckten Schätze an den Ständen in Steffisburg!",
+  "finale": "Juhui, du hast alle Schätze gefunden! Zeig diese Seite am Info-Stand und hol dir eine kleine Überraschung ab.",
+  "publicUrl": "",
+  "map": {
+    "center": [
+      46.7763,
+      7.6286
+    ],
+    "zoom": 17
+  },
+  "codes": [
+    {
+      "emoji": "🧀",
+      "name": "Käse-Schatz",
+      "hint": "Schnupper mal! Wo riecht es fein nach heissem, geschmolzenem Käse?",
+      "reward": "Mmmh, Raclette! Wusstest du, dass man dafür einen halben Käselaib ans Feuer hält?",
+      "lat": 46.77505,
+      "lng": 7.62555
+    },
+    {
+      "emoji": "🌰",
+      "name": "Marroni-Schatz",
+      "hint": "Wo knistert ein Ofen und es duftet nach heissen Marroni?",
+      "reward": "Marroni sind Kastanien. Am besten wärmt man sich damit die Hände!",
+      "lat": 46.775315,
+      "lng": 7.62617
+    },
+    {
+      "emoji": "🍪",
+      "name": "Guetzli-Schatz",
+      "hint": "Sterne, Herzen und Mailänderli: Wo gibt es die feinsten Guetzli?",
+      "reward": "Zimtsterne, Brunsli, Spitzbuben – welches ist dein Lieblingsguetzli?",
+      "lat": 46.77558,
+      "lng": 7.62679
+    },
+    {
+      "emoji": "🕯️",
+      "name": "Kerzen-Schatz",
+      "hint": "Wo leuchten Kerzen in allen Farben? Psst, nicht auspusten!",
+      "reward": "Kerzen werden aus Wachs gemacht, manchmal sogar aus Bienenwachs.",
+      "lat": 46.775845,
+      "lng": 7.62741
+    },
+    {
+      "emoji": "🧸",
+      "name": "Spielzeug-Schatz",
+      "hint": "Wo warten Teddybären und Holzspielzeug auf ein neues Zuhause?",
+      "reward": "Der erste Teddybär ist über hundert Jahre alt!",
+      "lat": 46.77611,
+      "lng": 7.62803
+    },
+    {
+      "emoji": "🍭",
+      "name": "Süssigkeiten-Schatz",
+      "hint": "Wo wird es süss und klebrig? Gebrannte Mandeln, Magenbrot und Zuckerwatte!",
+      "reward": "Gebrannte Mandeln werden in einem grossen Kupferkessel gemacht. Riechst du den Zucker?",
+      "lat": 46.776375,
+      "lng": 7.62865
+    },
+    {
+      "emoji": "🧣",
+      "name": "Warme-Ohren-Schatz",
+      "hint": "Wo gibt es Mützen, Socken und Handschuhe gegen kalte Ohren und Zehen?",
+      "reward": "Eine Mütze hält warm, weil die Luft darin eingefangen wird.",
+      "lat": 46.77664,
+      "lng": 7.62927
+    },
+    {
+      "emoji": "☕",
+      "name": "Punsch-Schatz",
+      "hint": "Wo dampft warmer Punsch aus grossen Töpfen und es duftet nach Zimt und Orangen?",
+      "reward": "Kinderpunsch ist aus Tee und Fruchtsaft gemacht.",
+      "lat": 46.776905,
+      "lng": 7.62989
+    },
+    {
+      "emoji": "🎄",
+      "name": "Tannenbaum-Schatz",
+      "hint": "Wo steht ein Tannenbaum mit Kugeln und Lichtern? Wie viele Kugeln kannst du zählen?",
+      "reward": "Früher hat man Christbäume mit Äpfeln und Nüssen geschmückt.",
+      "lat": 46.77717,
+      "lng": 7.63051
+    },
+    {
+      "emoji": "🎶",
+      "name": "Musik-Schatz",
+      "hint": "Hör mal genau hin! Wo klingt Musik oder wo wird gesungen?",
+      "reward": "Kannst du das Lied mitsingen? Dann los!",
+      "lat": 46.777435,
+      "lng": 7.63113
+    },
+    {
+      "emoji": "👼",
+      "name": "Christkind-Schatz",
+      "hint": "Den letzten Schatz findest du dort, wo das Christkind vorbeischaut. Siehst du es?",
+      "reward": "Das Christkind bringt in vielen Ländern die Geschenke. Frohe Weihnachten!",
+      "lat": 46.7777,
+      "lng": 7.63175
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14213d">
+  <title>Schatzsuche am Chrischtchindlimärit</title>
+  <meta name="description" content="Die Schatzsuche für Kinder am Chrischtchindlimärit Steffisburg.">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="app">
+  <div class="snow" aria-hidden="true"></div>
+
+  <header class="top">
+    <div class="top-title">
+      <span class="top-star" aria-hidden="true">⭐</span>
+      <div>
+        <h1 id="title">Schatzsuche</h1>
+        <p id="subtitle" class="top-sub"></p>
+      </div>
+    </div>
+    <div class="counter" aria-live="polite">
+      <span id="count-found">0</span><span class="counter-sep">/</span><span id="count-total">0</span>
+      <span class="counter-label">Schätze</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Stempelkarte -->
+    <section id="view-card" class="view" aria-labelledby="card-heading">
+      <div class="card-head">
+        <h2 id="card-heading">Meine Stempelkarte</h2>
+        <label class="owner">
+          <span>Diese Karte gehört:</span>
+          <input id="owner" type="text" maxlength="30" placeholder="Dein Name" autocomplete="off">
+        </label>
+        <div class="progress" role="progressbar" aria-valuemin="0" id="progress">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p class="card-intro">Lies die Rätsel, suche die Stände und scanne die versteckten QR-Codes.
+          Für jeden Schatz bekommst du einen Stempel!</p>
+      </div>
+      <ol id="stamps" class="stamps"></ol>
+    </section>
+
+    <!-- Karte -->
+    <section id="view-map" class="view" hidden aria-label="Karte">
+      <div id="map" class="map"></div>
+      <div class="map-overlay">
+        <p id="map-note" class="map-note">Auf der Karte erscheinen nur die Schätze, die du schon gefunden hast.</p>
+        <button id="locate" class="btn btn-small" type="button">📍 Wo bin ich?</button>
+      </div>
+    </section>
+
+    <!-- Scanner -->
+    <section id="view-scan" class="view" hidden aria-labelledby="scan-heading">
+      <h2 id="scan-heading" class="scan-heading">Schatz scannen</h2>
+      <div class="scanner">
+        <video id="video" playsinline muted></video>
+        <div class="scanner-frame" aria-hidden="true"></div>
+        <p id="scan-status" class="scan-status">Halte die Kamera auf einen Schatz-QR-Code.</p>
+      </div>
+      <button id="scan-start" class="btn" type="button">📷 Kamera starten</button>
+      <form id="manual" class="manual">
+        <label for="manual-code">Kamera geht nicht? Tippe den Geheimcode unter dem QR-Code ein:</label>
+        <div class="manual-row">
+          <input id="manual-code" type="text" inputmode="text" autocapitalize="characters" autocomplete="off"
+                 maxlength="9" placeholder="ABCD-2345">
+          <button class="btn btn-small" type="submit">Los!</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <nav class="tabs" aria-label="Ansicht">
+    <button class="tab" data-view="card" type="button"><span aria-hidden="true">🎫</span>Stempelkarte</button>
+    <button class="tab tab-scan" data-view="scan" type="button"><span aria-hidden="true">📷</span>Scannen</button>
+    <button class="tab" data-view="map" type="button"><span aria-hidden="true">🗺️</span>Karte</button>
+  </nav>
+
+  <!-- Fund-Feier -->
+  <div id="overlay" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="overlay-title">
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <div class="overlay-box">
+      <div id="overlay-emoji" class="overlay-emoji">⭐</div>
+      <h2 id="overlay-title">Juhui!</h2>
+      <p id="overlay-text"></p>
+      <p id="overlay-reward" class="overlay-reward"></p>
+      <button id="overlay-close" class="btn" type="button">Weiter suchen!</button>
+    </div>
+  </div>
+
+  <script src="/vendor/leaflet/leaflet.js"></script>
+  <script src="/vendor/jsQR.js"></script>
+  <script src="/common.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* Admin-UI und Druckvorlagen. Baut auf style.css auf. */
+
+body.admin { background: #eef2f7; color: var(--ink); }
+
+/* ---------- Anmeldung ---------- */
+.login { min-height: 100dvh; display: grid; place-items: center; padding: 16px;
+  background: radial-gradient(ellipse at top, var(--night-2), var(--night) 70%); }
+.login-box { width: min(360px, 100%); background: var(--paper); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); display: grid; gap: 10px; text-align: center; }
+.login-star { font-size: 3rem; }
+.login-box h1 { margin: 0 0 6px; font-size: 1.3rem; }
+.login-box label { text-align: left; font-weight: 700; }
+.login-box input { font: inherit; font-size: 1.1rem; padding: 10px 12px; border-radius: 12px; border: 2px solid #d9c9a5; }
+.error { color: var(--red); font-weight: 700; margin: 0; min-height: 1.2em; }
+
+/* ---------- Kopfzeile ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 900;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 10px 16px; background: var(--night); color: #fff;
+  border-bottom: 4px solid var(--red);
+}
+.bar h1 { margin: 0; font-size: 1.1rem; }
+.bar-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.save-state { font-size: .85rem; font-weight: 700; opacity: .85; }
+.save-state.is-dirty { color: var(--gold); opacity: 1; }
+.btn-light { background: #fff; color: var(--night); box-shadow: 0 4px 0 #b8c2d3; }
+.btn-light:active { box-shadow: 0 1px 0 #b8c2d3; }
+.btn-danger { background: #fff; color: var(--red); box-shadow: 0 4px 0 #e7b4bd; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.more { position: relative; }
+.more summary { list-style: none; }
+.more summary::-webkit-details-marker { display: none; }
+.more-menu {
+  position: absolute; right: 0; top: calc(100% + 8px); min-width: 250px; z-index: 1000;
+  background: #fff; border-radius: 14px; box-shadow: 0 12px 30px rgba(0,0,0,.25); padding: 6px; display: grid;
+}
+.more-menu button, .more-menu a, .more-menu .file-btn {
+  font: inherit; font-weight: 700; text-align: left; color: var(--ink); text-decoration: none;
+  background: none; border: 0; padding: 10px 12px; border-radius: 10px; cursor: pointer;
+}
+.more-menu button:hover, .more-menu a:hover, .more-menu .file-btn:hover { background: #f1f4f9; }
+
+/* ---------- Layout ---------- */
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 420px; height: calc(100dvh - 62px); }
+.map-col { position: relative; display: flex; flex-direction: column; min-height: 0; }
+.admin-map { flex: 1; min-height: 300px; }
+.placing .admin-map { cursor: crosshair; }
+.placing .admin-map .leaflet-grab { cursor: crosshair; }
+.map-help { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 16px; background: #fff; border-top: 1px solid #dbe2ec; font-weight: 700; font-size: .9rem; }
+.placing .map-help { background: #fff4d1; }
+
+.side { overflow-y: auto; padding: 16px; border-left: 1px solid #dbe2ec; background: #f7f9fc; }
+.side-title { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; margin: 20px 0 10px; }
+.pill { display: inline-block; background: var(--night); color: #fff; font-size: .75rem; font-weight: 800; border-radius: 999px; padding: 2px 9px; }
+.pill-new { background: var(--gold); color: var(--night); margin-left: auto; }
+.small { font-size: .85rem; color: var(--ink-soft); margin: 4px 0; }
+small { font-weight: 500; color: var(--ink-soft); }
+
+.panel, .code { background: #fff; border-radius: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 0 0 1px #e3e8f0; }
+.panel summary, .code summary { cursor: pointer; padding: 12px 14px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+.panel-body, .code-body { padding: 0 14px 14px; display: grid; gap: 10px; }
+.panel label, .code label { display: grid; gap: 4px; font-weight: 700; font-size: .85rem; }
+.panel input, .panel textarea, .code input, .code textarea {
+  font: inherit; font-size: .95rem; font-weight: 500; padding: 8px 10px; border-radius: 10px;
+  border: 1.5px solid #cfd8e3; background: #fff; color: var(--ink); resize: vertical; width: 100%;
+}
+.panel input:focus, .panel textarea:focus, .code input:focus, .code textarea:focus { outline: 2px solid var(--gold); border-color: var(--gold-dark); }
+.row { display: grid; grid-template-columns: 90px 1fr; gap: 10px; }
+.emoji-input { text-align: center; font-size: 1.4rem !important; }
+
+.codes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.codes .empty { padding: 16px; background: #fff; border-radius: 14px; color: var(--ink-soft); font-weight: 700; }
+.code[open] { box-shadow: 0 0 0 2px var(--red), 0 6px 16px rgba(0,0,0,.1); }
+.code-num { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--gold); color: var(--night); display: grid; place-items: center; font-size: .85rem; }
+.code-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.code-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.code-actions .btn { font-size: .8rem; padding: 7px 10px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; height: auto; }
+  .admin-map { height: 55dvh; flex: none; }
+  .side { border-left: 0; }
+}
+
+/* ---------- Druck ---------- */
+.print { display: none; }
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  body.admin { background: #fff; }
+  body.admin > *:not(.print) { display: none !important; }
+  .print { display: block; }
+
+  /* Zwei A5-Plakate pro A4-Seite: gut sichtbar am Stand, spart Papier. */
+  .sheet {
+    height: 148.5mm; width: 210mm; padding: 8mm; box-sizing: border-box;
+    page-break-inside: avoid; break-inside: avoid;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .sheet:nth-child(2n) { page-break-after: always; break-after: page; }
+  .sheet-inner {
+    height: 100%; border: 3mm solid var(--red); border-radius: 8mm; background: var(--paper);
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto 1fr auto auto;
+    column-gap: 8mm; padding: 6mm 8mm; text-align: center; position: relative; overflow: hidden;
+    background-image: radial-gradient(circle at 10% 90%, rgba(255,197,61,.35) 0 18mm, transparent 18mm),
+                      radial-gradient(circle at 95% 8%, rgba(200,16,46,.12) 0 22mm, transparent 22mm);
+  }
+  .p-kicker { grid-column: 1 / -1; margin: 0; font-size: 11pt; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--red); }
+  .p-badge { grid-column: 1; grid-row: 2 / 4; align-self: center; position: relative; justify-self: center;
+    width: 52mm; height: 52mm; border-radius: 50%; background: #fff; border: 2.5mm dashed var(--gold-dark); display: grid; place-items: center; }
+  .p-emoji { font-size: 30mm; line-height: 1; }
+  .p-num { position: absolute; top: -2mm; right: -2mm; width: 16mm; height: 16mm; border-radius: 50%;
+    background: var(--red); color: #fff; font-size: 20pt; font-weight: 900; display: grid; place-items: center; border: 1.5mm solid #fff; }
+  .p-title { grid-column: 1; grid-row: 4; margin: 2mm 0 0; font-size: 18pt; line-height: 1.1; color: var(--night); }
+  .p-qr { grid-column: 2; grid-row: 2 / 5; align-self: center; }
+  .qr { width: 78mm; height: 78mm; display: block; margin: 0 auto; border-radius: 3mm; }
+  .p-scan { grid-column: 1 / -1; margin: 3mm 0 0; font-size: 15pt; font-weight: 900; color: var(--red); }
+  .p-code { grid-column: 1 / -1; margin: 1mm 0 0; font-size: 11pt; color: var(--ink-soft); }
+  .p-code strong { font-size: 14pt; letter-spacing: .12em; color: var(--ink); }
+
+  /* Start-Plakat: eine ganze A4-Seite. */
+  .sheet-start { height: 297mm; page-break-after: always; break-after: page; }
+  .sheet-start .sheet-inner { grid-template-columns: 1fr; grid-template-rows: auto auto auto auto 1fr auto auto; row-gap: 4mm; padding: 12mm; }
+  .sheet-start .p-title, .sheet-start .p-qr, .sheet-start .p-scan { grid-column: 1; grid-row: auto; }
+  .p-big-emoji { font-size: 32mm; line-height: 1.1; }
+  .p-title-big { font-size: 30pt; margin: 0; }
+  .p-lead { margin: 0; font-size: 15pt; font-weight: 700; }
+  .sheet-start .qr { width: 90mm; height: 90mm; }
+  .p-steps { text-align: left; font-size: 14pt; font-weight: 700; margin: 0 auto; padding-left: 8mm; line-height: 1.5; max-width: 150mm; }
+}

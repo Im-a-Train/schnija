@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Schatzsuche · Admin</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body class="admin">
+  <!-- Anmeldung -->
+  <section id="login" class="login" hidden>
+    <form id="login-form" class="login-box">
+      <div class="login-star" aria-hidden="true">⭐</div>
+      <h1>Schatzsuche · Admin</h1>
+      <label for="password">Passwort</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <button class="btn" type="submit">Anmelden</button>
+      <p id="login-error" class="error" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- Editor -->
+  <div id="editor" class="editor" hidden>
+    <header class="bar">
+      <h1>⭐ Schatzsuche · Admin</h1>
+      <div class="bar-actions">
+        <span id="save-state" class="save-state" aria-live="polite"></span>
+        <button id="save" class="btn btn-small" type="button">💾 Speichern</button>
+        <button id="print-all" class="btn btn-small btn-light" type="button">🖨️ Alle drucken</button>
+        <details class="more">
+          <summary class="btn btn-small btn-light">⋯</summary>
+          <div class="more-menu">
+            <button id="print-start" type="button">🖨️ Start-Plakat drucken</button>
+            <button id="export" type="button">⬇️ Konfiguration exportieren</button>
+            <label class="file-btn">⬆️ Konfiguration importieren<input id="import" type="file" accept="application/json,.json" hidden></label>
+            <a href="/" target="_blank" rel="noopener">👀 Spieler-Ansicht öffnen</a>
+            <button id="logout" type="button">🚪 Abmelden</button>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <div class="layout">
+      <div class="map-col">
+        <div id="admin-map" class="admin-map"></div>
+        <div class="map-help">
+          <button id="place-new" class="btn btn-small" type="button">➕ Neuen Schatz platzieren</button>
+          <span id="map-hint">Marker ziehen, um einen Schatz zu verschieben.</span>
+        </div>
+      </div>
+
+      <aside class="side">
+        <details class="panel" id="settings-panel">
+          <summary>⚙️ Einstellungen</summary>
+          <div class="panel-body">
+            <label>Titel <input id="s-title" type="text" maxlength="80"></label>
+            <label>Untertitel <input id="s-subtitle" type="text" maxlength="200"></label>
+            <label>Schlussbotschaft <small>(sehen die Kinder erst, wenn alle Schätze gefunden sind)</small>
+              <textarea id="s-finale" rows="3" maxlength="600"></textarea></label>
+            <label>Öffentliche Adresse für die QR-Codes <small>(leer = diese Adresse)</small>
+              <input id="s-url" type="url" maxlength="200" placeholder="https://schatzsuche.24eranker.dedyn.io"></label>
+            <p class="small">Startansicht der Karte: <span id="s-view"></span></p>
+            <button id="s-use-view" class="btn btn-small btn-light" type="button">📌 Aktuellen Kartenausschnitt als Start nehmen</button>
+          </div>
+        </details>
+
+        <h2 class="side-title">Schätze <span id="code-count" class="pill">0</span></h2>
+        <ol id="codes" class="codes"></ol>
+      </aside>
+    </div>
+  </div>
+
+  <div id="print" class="print" aria-hidden="true"></div>
+
+  <script src="/vendor/leaflet/leaflet.js"></script>
+  <script src="/vendor/qrcode.js"></script>
+  <script src="/common.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

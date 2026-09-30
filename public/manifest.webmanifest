@@ -1,0 +1,11 @@
+{
+  "name": "Schatzsuche am Chrischtchindlimärit",
+  "short_name": "Schatzsuche",
+  "description": "Die Schatzsuche für Kinder am Chrischtchindlimärit Steffisburg.",
+  "lang": "de-CH",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#14213d",
+  "theme_color": "#14213d",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

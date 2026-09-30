@@ -1,0 +1,14 @@
+{
+  "name": "christkindmaerit-schatzsuche",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Schatzsuche für Kinder am Chrischtchindlimärit Steffisburg",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "ADMIN_PASSWORD=admin node --watch src/server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "license": "UNLICENSED"
+}
